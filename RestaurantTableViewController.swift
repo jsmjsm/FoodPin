@@ -82,11 +82,17 @@ class RestaurantTableViewController: UITableViewController {
         let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHanlder)
         optionMenu.addAction(callAction)
         
-        
-
+        // Add Check-in Action
+        /*Another way to write Closure,better way*/
+        let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {
+            (action:UIAlertAction!) -> Void in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        })
+        optionMenu.addAction(checkInAction)
         //呈现表单
         present(optionMenu, animated: true, completion: nil)
     }
 
-
+    
 }
