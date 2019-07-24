@@ -22,6 +22,12 @@ class RestaurantTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
+
+    override var prefersStatusBarHidden: Bool {
+        // to show the statusbar or not
+        return false
+    }
+    
     var restaurantNames = ["Cafe Deadend", "Homei", "Teakha", "Cafe Loisl", "Petite Oyster", "For Kee Restaurant", "Po's Atelier", "Bourke Street Bakery", "Haigh's Chocolate", "Palomino Espresso", "Upstate", "Traif", "Graham Avenue Meats", "Waffle & Wolf", "Five Leaves", "Cafe Lore","Confessional", "Barrafina", "Donostia", "Royal Oak", "CASK Pub and Kitchen"]
     
     var restaurantImages = ["cafedeadend", "homei", "teakha", "cafeloisl", "petiteoyster", "forkeerestaurant", "posatelier", "bourkestreetbakery", "haighschocolate", "palominoespresso", "upstate", "traif", "grahamavenuemeats", "wafflewolf", "fiveleaves", "cafelore", "confessional", "barrafina", "donostia", "royaloak", "caskpubkitchen"]
@@ -53,16 +59,34 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 建立一个类似动作清单选择列表
-        let optionMenu  = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        // There are two ways to display the Menu: ActionSheet and Altert
+        // .actionSheet = UIAlertControllerStyle.actionSheet
+        let optionMenu  = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet /*.altert*/)
+
         // 加入到动作选单中
         let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil )
+        // Use addAction to add the cancleAction to the Menu
         optionMenu.addAction(cancleAction)
+        
+        // ***an examole of Closure***
+        // Add Call Acion
+        let callActionHanlder = { /*Parameters and return type of the closure*/ (action:UIAlertAction!) -> Void /*indicate the start of the body*/ in
+                                
+            // The alter message
+            let alterMessage = UIAlertController(title: "Service Unavaliable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+            // The finish action
+            alterMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alterMessage, animated: true, completion: nil)
+        }
+        // Use callActionHanlder as handler instead of nil
+        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHanlder)
+        optionMenu.addAction(callAction)
+        
+        
+
         //呈现表单
         present(optionMenu, animated: true, completion: nil)
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
-    
+
+
 }
