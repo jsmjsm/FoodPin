@@ -15,6 +15,11 @@ class RestaurnatTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet var nameLabel: UILabel! //名称标签
+    @IBOutlet var locationLabel: UILabel! //位置标签
+    @IBOutlet var typeLabel: UILabel! //类型标签
+    @IBOutlet var thumbnailImageView: UIImageView! //缩略图
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
