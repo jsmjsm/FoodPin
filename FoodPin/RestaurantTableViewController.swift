@@ -60,6 +60,8 @@ class RestaurantTableViewController: UITableViewController {
         } else {
             cell.accessoryType = .none
         }
+        // another way:用三运算元
+        /* cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none */
         return cell
     }
     
@@ -105,7 +107,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     // debug
-    var restaurantIsVisited = Array(repeating: false,count: 21  )
+    var restaurantIsVisited = Array(repeating: false,count: 21 )
     
 }
 
