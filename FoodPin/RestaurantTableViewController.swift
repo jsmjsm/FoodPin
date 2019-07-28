@@ -71,7 +71,7 @@ class RestaurantTableViewController: UITableViewController {
         // ***an examole of Closure***
         // Add Call Acion
         let callActionHanlder = { /*Parameters and return type of the closure*/ (action:UIAlertAction!) -> Void /*indicate the start of the body*/ in
-                                
+
             // The alter message
             let alterMessage = UIAlertController(title: "Service Unavaliable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
             // The finish action
@@ -84,7 +84,7 @@ class RestaurantTableViewController: UITableViewController {
         
         // Add Check-in Action
         /*Another way to write Closure,better way*/
-        let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {
+        let checkInAction = UIAlertAction(title: "Check In", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
@@ -92,7 +92,11 @@ class RestaurantTableViewController: UITableViewController {
         optionMenu.addAction(checkInAction)
         //呈现表单
         present(optionMenu, animated: true, completion: nil)
+        // deselect the rows
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    
 }
+
+
+
