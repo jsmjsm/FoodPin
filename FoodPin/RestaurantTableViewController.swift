@@ -12,7 +12,8 @@ class RestaurantTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        /*shorten the width of cells on iPad*/
+        tableView.cellLayoutMarginsFollowReadableWidth = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
