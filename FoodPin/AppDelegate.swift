@@ -2,8 +2,9 @@
 //  AppDelegate.swift
 //  FoodPin
 //
-//  Created by Simon Ng on 8/8/2018.
-//  Copyright © 2018 AppCoda. All rights reserved.
+//  Created by Levy Pan on 7/11/19.
+//  Copyright © 2019 LVP. All rights reserved.
+
 //
 
 import UIKit
