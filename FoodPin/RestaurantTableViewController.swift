@@ -54,6 +54,12 @@ class RestaurantTableViewController: UITableViewController {
     cell.locationLabel.text = "in " + restaurantLocations[indexPath.row]
     cell.typeLabel.text = restaurantTypes[indexPath.row]
     cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
+        /*upgrade the accessory view*/
+        if restaurantIsVisited[indexPath.row] {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
     
@@ -86,8 +92,10 @@ class RestaurantTableViewController: UITableViewController {
         /*Another way to write Closure,better way*/
         let checkInAction = UIAlertAction(title: "Check In", style: .default, handler: {
             (action:UIAlertAction!) -> Void in
+            
             let cell = tableView.cellForRow(at: indexPath)
             cell?.accessoryType = .checkmark
+            self.restaurantIsVisited[indexPath.row] = true
         })
         optionMenu.addAction(checkInAction)
         //呈现表单
@@ -95,7 +103,10 @@ class RestaurantTableViewController: UITableViewController {
         // deselect the rows
         tableView.deselectRow(at: indexPath, animated: false)
     }
-
+    
+    // debug
+    var restaurantIsVisited = Array(repeating: false,count: 21  )
+    
 }
 
 
