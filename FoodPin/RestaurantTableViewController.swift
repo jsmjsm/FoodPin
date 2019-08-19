@@ -165,6 +165,7 @@ class RestaurantTableViewController: UITableViewController {
     // rebuild the delete func and add share func
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // UIContextualAction just like UIAlterAction
+        //delete function
         let deleteAction = UIContextualAction(style: .destructive, title:"Delete"){
             (action,sourceView,completionHandler) in
             // delete the data from the dataSource
@@ -179,6 +180,11 @@ class RestaurantTableViewController: UITableViewController {
             //call the completionHandler to finish the aciton
             completionHandler(true)
         }
+        //adjust the color
+        deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue:60.0/255.0, alpha: 1.0)
+        deleteAction.image = UIImage(named: "delete")
+   
+        //sahre func
         let shareAction = UIContextualAction(style: .normal, title: "Share"){
             (action,sourceView,completionHandler) in
             let defaultText = "Just checking in at " + self.restaurantNames[indexPath.row]
@@ -202,6 +208,10 @@ class RestaurantTableViewController: UITableViewController {
             completionHandler(true)
             
         }
+        //adjust the color
+        shareAction.backgroundColor = UIColor(red: 254.0/255.0, green: 149.0/255.0, blue: 38.0/255.0, alpha: 1.0)
+        shareAction.image = UIImage(named: "share")
+        
  
         let swipeActionsConfiguration = UISwipeActionsConfiguration(actions:[deleteAction,shareAction])
         // use swipeActionsConfiguration to return a button
