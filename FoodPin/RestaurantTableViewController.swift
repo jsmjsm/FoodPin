@@ -67,8 +67,9 @@ class RestaurantTableViewController: UITableViewController {
         // 建立一个类似动作清单选择列表
         // There are two ways to display the Menu: ActionSheet and Altert
         // .actionSheet = UIAlertControllerStyle.actionSheet
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)gi
 
+        //debug for ipad
         if let popoverController = optionMenu.popoverPresentationController {
             if let cell = tableView.cellForRow(at: indexPath) {
                 popoverController.sourceView = cell
