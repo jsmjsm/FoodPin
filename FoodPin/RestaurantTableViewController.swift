@@ -148,7 +148,10 @@ class RestaurantTableViewController: UITableViewController {
             restaurantImages.remove(at: indexPath.row)
         }
     // to reload the table view
-        tableView.reloadData()
+//        tableView.reloadData()
+        
+        // another way to reload the table ->
+        tableView.deleteRows(at: [indexPath], with: .left)
         
     // use to debug
 //        print("Total item:  \(restaurantNames.count)")
