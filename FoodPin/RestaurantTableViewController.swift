@@ -134,4 +134,28 @@ class RestaurantTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
+    //11-MVC
+    // swipe to delete
+    // func: tableView(_:commit:forRowAt:)
+    // delete the data but do not reload the table view
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            // delete the row from the data source
+            restaurantNames.remove(at: indexPath.row)
+            restaurantTypes.remove(at: indexPath.row)
+            restaurantLocations.remove(at: indexPath.row)
+            restaurantIsVisited.remove(at: indexPath.row)
+            restaurantImages.remove(at: indexPath.row)
+        }
+    // to reload the table view
+        tableView.reloadData()
+        
+    // use to debug
+//        print("Total item:  \(restaurantNames.count)")
+//        for name in restaurantNames{
+//            print(name)
+//        }
+        
+  }
+    
 }
