@@ -138,15 +138,15 @@ class RestaurantTableViewController: UITableViewController {
     // swipe to delete
     // func: tableView(_:commit:forRowAt:)
     // delete the data but do not reload the table view
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            // delete the row from the data source
-            restaurantNames.remove(at: indexPath.row)
-            restaurantTypes.remove(at: indexPath.row)
-            restaurantLocations.remove(at: indexPath.row)
-            restaurantIsVisited.remove(at: indexPath.row)
-            restaurantImages.remove(at: indexPath.row)
-        }
+   /* override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete{
+//            // delete the row from the data source
+//            restaurantNames.remove(at: indexPath.row)
+//            restaurantTypes.remove(at: indexPath.row)
+//            restaurantLocations.remove(at: indexPath.row)
+//            restaurantIsVisited.remove(at: indexPath.row)
+//            restaurantImages.remove(at: indexPath.row)
+//        }
     // to reload the table view
 //        tableView.reloadData()
         
@@ -160,5 +160,45 @@ class RestaurantTableViewController: UITableViewController {
 //        }
         
   }
+    */
     
+    // rebuild the delete func and add share func
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // UIContextualAction just like UIAlterAction
+        let deleteAction = UIContextualAction(style: .destructive, title:"Delete"){
+            (action,sourceView,completionHandler) in
+            // delete the data from the dataSource
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantTypes.remove(at: indexPath.row)
+            self.restaurantLocations.remove(at: indexPath.row)
+            self.restaurantIsVisited.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+            
+            self.tableView.deleteRows(at: [indexPath], with: .left)
+            
+            //call the completionHandler to finish the aciton
+            completionHandler(true)
+        }
+        let shareAction = UIContextualAction(style: .normal, title: "Share"){
+            (action,sourceView,completionHandler) in
+            let defaultText = "Just checking in at " + self.restaurantNames[indexPath.row]
+            
+            let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            
+            self.present(activityController,animated: true,completion: nil)
+            
+            completionHandler(true)
+            
+        }
+        
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions:[deleteAction,shareAction])
+        // use swipeActionsConfiguration to return a button 
+        return swipeActionsConfiguration
+    }
+
+
+
+
+
+
 }
