@@ -22,7 +22,8 @@ class RestaurantTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*shorten the width of cells on iPad*/
+        
+        /*shorten the width of cells on iPad 调整在iPad上的显示*/
         tableView.cellLayoutMarginsFollowReadableWidth = true
     }
 
@@ -41,7 +42,7 @@ class RestaurantTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cellIdentifier = "datacell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell //强制转换
 
         // Configure the cell...
         cell.nameLabel.text = restaurantNames[indexPath.row]
@@ -69,6 +70,7 @@ class RestaurantTableViewController: UITableViewController {
         // .actionSheet = UIAlertControllerStyle.actionSheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
 
+        // 配置iPad上的 UIPopoverPresentationController 物件
         if let popoverController = optionMenu.popoverPresentationController {
             if let cell = tableView.cellForRow(at: indexPath) {
                 popoverController.sourceView = cell
@@ -83,6 +85,7 @@ class RestaurantTableViewController: UITableViewController {
 
         // ***an examole of Closure***
         // Add Call action
+        // 🔑 闭包
         let callActionHandler = { (action:UIAlertAction!) -> Void in
             // The alter message
             let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
@@ -110,6 +113,7 @@ class RestaurantTableViewController: UITableViewController {
 
             let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
 
+            // 更新访问
             self.restaurantIsVisited[indexPath.row] = (self.restaurantIsVisited[indexPath.row]) ? false : true
 
             // Solution to exercise #1
@@ -127,11 +131,101 @@ class RestaurantTableViewController: UITableViewController {
         })
         optionMenu.addAction(checkInAction)
 
-        // Display the menu
+        // Display the menu 呈现选单
         present(optionMenu, animated: true, completion: nil)
 
-        // Deselect the row
+        // Deselect the row 反选列
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
+//    // MARK: 滑动删除
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete{
+//            // delete row from the data source
+//            restaurantNames.remove(at: indexPath.row)
+//            restaurantLocations.remove(at: indexPath.row)
+//            restaurantTypes.remove(at: indexPath.row)
+//            restaurantImages.remove(at: indexPath.row)
+//
+//        }
+//
+//        // tableView.reloadData() // reload 的方法有点暴力
+//
+//        //从表格时图中移除特定列 用 deleteRows 的方法
+//        tableView.deleteRows(at: [indexPath], with: .automatic)
+//
+////        print("Total item: \(restaurantNames.count)")
+////        for name in restaurantNames{
+////            print(name)
+////        }
+//
+//
+//    }
+    
+    //  MARK: 向左滑动
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // delete action
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){
+            (action, sourceView, CompletionHandler) in
+            // 从资料源删除列
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantLocations.remove(at: indexPath.row)
+            self.restaurantTypes.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+            self.restaurantIsVisited.remove(at: indexPath.row)
+            
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // 呼叫完成处理器来解除动作按钮
+            CompletionHandler(true)
+        }
+        
+        // share action
+        let shareAction = UIContextualAction(style: .normal, title: "Share"){ (action, sourceView, completionHandler) in
+            let deafultText = "Just checking in at " + self.restaurantNames[indexPath.row]
+            
+            // config the controller
+            let activityController : UIActivityViewController
+            
+            if let imageToShare = UIImage(named: self.restaurantImages[indexPath.row]){
+                activityController = UIActivityViewController(activityItems: [deafultText, imageToShare], applicationActivities: nil)
+            }else{
+                activityController = UIActivityViewController(activityItems: [deafultText], applicationActivities: nil)
+            }
+            
+            // 为 ipad 调整
+            if let popoverController = activityController.popoverPresentationController{
+                if let cell = tableView.cellForRow(at: indexPath){
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
+            
+            
+            self.present(activityController,animated: true, completion: nil)
+            
+            completionHandler(true)
+            
+        }
+        
+        //   adjust the pattern style
+        deleteAction.backgroundColor = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        deleteAction.image = UIImage(named: "delete")
+        
+        shareAction.backgroundColor = UIColor(red: 254.0/255.0, green: 149.0/255.0, blue: 38.0/255.0, alpha: 1.0)
+        shareAction.image = UIImage(named: "share")
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction,shareAction])
+        
+    return swipeConfiguration
+    }
+    
+        
+    
+    
+    
+    
+    // class end
 }
