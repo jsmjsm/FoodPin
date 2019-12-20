@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hIK-7A-J43">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R55-xJ-amq">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Restaurant Table View Controller-->
+        <!--FoodPin-->
         <scene sceneID="3dP-14-Yba">
             <objects>
                 <tableViewController id="hIK-7A-J43" customClass="RestaurantTableViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,6 +85,7 @@
                                     <outlet property="nameLabel" destination="dHI-Ro-LfK" id="idL-is-gxI"/>
                                     <outlet property="thumbnailImageView" destination="y5q-0v-VHz" id="Q0e-iU-8ro"/>
                                     <outlet property="typeLabel" destination="aaM-3S-454" id="7BI-MJ-kfa"/>
+                                    <segue destination="QDp-vt-ZTu" kind="show" id="yxi-0u-2DQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -92,10 +94,56 @@
                             <outlet property="delegate" destination="hIK-7A-J43" id="Tfc-kQ-dQU"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="FoodPin" id="3Cl-cd-rrV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btd-fi-7zE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="152"/>
+            <point key="canvasLocation" x="1080.8" y="151.57421289355324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lxU-4f-8VJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R55-xJ-amq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mdk-gI-fCL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hIK-7A-J43" kind="relationship" relationship="rootViewController" id="4D5-4I-N7R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmr-mC-Ta0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="151.57421289355324"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bQ0-HU-H4O">
+            <objects>
+                <viewController id="QDp-vt-ZTu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7a5-Dl-nVW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNU-bX-p9L">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LNU-bX-p9L" firstAttribute="top" secondItem="5TQ-FG-8Hg" secondAttribute="top" id="7fi-i0-Arv"/>
+                            <constraint firstItem="LNU-bX-p9L" firstAttribute="bottom" secondItem="5TQ-FG-8Hg" secondAttribute="bottom" id="CaT-g2-oqp"/>
+                            <constraint firstItem="LNU-bX-p9L" firstAttribute="leading" secondItem="5TQ-FG-8Hg" secondAttribute="leading" id="Dh9-M0-sAa"/>
+                            <constraint firstItem="LNU-bX-p9L" firstAttribute="trailing" secondItem="5TQ-FG-8Hg" secondAttribute="trailing" id="n70-9Y-Yum"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5TQ-FG-8Hg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jmp-lW-Eap"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swy-Ov-KxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1861.5999999999999" y="151.57421289355324"/>
         </scene>
     </scenes>
     <resources>

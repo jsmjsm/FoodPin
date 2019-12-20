@@ -25,6 +25,9 @@ class RestaurantTableViewController: UITableViewController {
         
         /*shorten the width of cells on iPad 调整在iPad上的显示*/
         tableView.cellLayoutMarginsFollowReadableWidth = true
+		
+		/*在导航列中启用较大的标题*/
+		navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     // MARK: - Table view data source
@@ -60,83 +63,83 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
 
-    // MARK: - Table view delegate
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        // Create an option menu as an action sheet
-        // 建立一个类似动作清单选择列表
-        // There are two ways to display the Menu: ActionSheet and Altert
-        // .actionSheet = UIAlertControllerStyle.actionSheet
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-
-        // 配置iPad上的 UIPopoverPresentationController 物件
-        if let popoverController = optionMenu.popoverPresentationController {
-            if let cell = tableView.cellForRow(at: indexPath) {
-                popoverController.sourceView = cell
-                popoverController.sourceRect = cell.bounds
-            }
-        }
-
-        // Add actions to the menu
-        // 加入到动作选单中
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)// Use addAction to add the cancleAction to the Menu
-        optionMenu.addAction(cancelAction)
-
-        // ***an examole of Closure***
-        // Add Call action
-        // 🔑 闭包
-        let callActionHandler = { (action:UIAlertAction!) -> Void in
-            // The alter message
-            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
-            // The finish action
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertMessage, animated: true, completion: nil)
-        }
-
-        // Use callActionHanlder as handler instead of nil
-        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-
-        // Solution to exercise #1
-        // ---
-        // Determine the action tile by examining the status of restaurantIsVisited[indexPath.row]
-        // If it is set to true, we set the title "Undo Check in".
-
-        let checkActionTitle = (restaurantIsVisited[indexPath.row]) ? "Undo Check in" : "Check in"
-
-        // Check-in action
-        // Add Check-in Action
-        /*Another way to write Closure,better way*/
-        let checkInAction = UIAlertAction(title: checkActionTitle, style: .default, handler: {
-            (action:UIAlertAction!) -> Void in
-
-            let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
-
-            // 更新访问
-            self.restaurantIsVisited[indexPath.row] = (self.restaurantIsVisited[indexPath.row]) ? false : true
-
-            // Solution to exercise #1
-            // ---
-            // Toggle the accessoryType and the value of restaurantIsVisited[indexPath.row]
-            // If the value of self.restaurantIsVisited[indexPath.row] is true, we set the accessory type to .none.
-
-            // cell?.accessoryType = (self.restaurantIsVisited[indexPath.row]) ? .none : .checkmark
-
-            // Solution to exercise #2
-            // ---
-            // Use the isHidden property to control the appearance of the heart icon
-
-            cell.heartImageView.isHidden = self.restaurantIsVisited[indexPath.row] ? false : true
-        })
-        optionMenu.addAction(checkInAction)
-
-        // Display the menu 呈现选单
-        present(optionMenu, animated: true, completion: nil)
-
-        // Deselect the row 反选列
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
+	
+//    // MARK: - Table view delegate
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        // Create an option menu as an action sheet
+//        // 建立一个类似动作清单选择列表
+//        // There are two ways to display the Menu: ActionSheet and Altert
+//        // .actionSheet = UIAlertControllerStyle.actionSheet
+//        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+//
+//        // 配置iPad上的 UIPopoverPresentationController 物件
+//        if let popoverController = optionMenu.popoverPresentationController {
+//            if let cell = tableView.cellForRow(at: indexPath) {
+//                popoverController.sourceView = cell
+//                popoverController.sourceRect = cell.bounds
+//            }
+//        }
+//
+//        // Add actions to the menu
+//        // 加入到动作选单中
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)// Use addAction to add the cancleAction to the Menu
+//        optionMenu.addAction(cancelAction)
+//
+//        // ***an examole of Closure***
+//        // Add Call action
+//        // 🔑 闭包
+//        let callActionHandler = { (action:UIAlertAction!) -> Void in
+//            // The alter message
+//            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+//            // The finish action
+//            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alertMessage, animated: true, completion: nil)
+//        }
+//
+//        // Use callActionHanlder as handler instead of nil
+//        let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .default, handler: callActionHandler)
+//        optionMenu.addAction(callAction)
+//
+//        // Solution to exercise #1
+//        // ---
+//        // Determine the action tile by examining the status of restaurantIsVisited[indexPath.row]
+//        // If it is set to true, we set the title "Undo Check in".
+//
+//        let checkActionTitle = (restaurantIsVisited[indexPath.row]) ? "Undo Check in" : "Check in"
+//
+//        // Check-in action
+//        // Add Check-in Action
+//        /*Another way to write Closure,better way*/
+//        let checkInAction = UIAlertAction(title: checkActionTitle, style: .default, handler: {
+//            (action:UIAlertAction!) -> Void in
+//
+//            let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+//
+//            // 更新访问
+//            self.restaurantIsVisited[indexPath.row] = (self.restaurantIsVisited[indexPath.row]) ? false : true
+//
+//            // Solution to exercise #1
+//            // ---
+//            // Toggle the accessoryType and the value of restaurantIsVisited[indexPath.row]
+//            // If the value of self.restaurantIsVisited[indexPath.row] is true, we set the accessory type to .none.
+//
+//            // cell?.accessoryType = (self.restaurantIsVisited[indexPath.row]) ? .none : .checkmark
+//
+//            // Solution to exercise #2
+//            // ---
+//            // Use the isHidden property to control the appearance of the heart icon
+//
+//            cell.heartImageView.isHidden = self.restaurantIsVisited[indexPath.row] ? false : true
+//        })
+//        optionMenu.addAction(checkInAction)
+//
+//        // Display the menu 呈现选单
+//        present(optionMenu, animated: true, completion: nil)
+//
+//        // Deselect the row 反选列
+//        tableView.deselectRow(at: indexPath, animated: false)
+//    }
 
 //    // MARK: 滑动删除
 //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
