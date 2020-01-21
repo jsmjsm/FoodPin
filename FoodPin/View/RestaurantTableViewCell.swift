@@ -20,7 +20,6 @@ class RestaurantTableViewCell: UITableViewCell {
         }
     }
     
-    // Exercise #2
     @IBOutlet var heartImageView: UIImageView!
     
     override func awakeFromNib() {

@@ -10,7 +10,7 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
 
-	// 新的Restaurant 阵列
+	// MARK: - 新的Restaurant 阵列
 	var restaurants:[Restaurant] = [
 	Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend", isVisited: false),
 	Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image: "homei",isVisited: false),
@@ -79,7 +79,7 @@ class RestaurantTableViewController: UITableViewController {
     }
 
 	
-//    // MARK: - Table view delegate
+//    // - Table view delegate
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
 //        // Create an option menu as an action sheet
@@ -156,7 +156,7 @@ class RestaurantTableViewController: UITableViewController {
 //        tableView.deselectRow(at: indexPath, animated: false)
 //    }
 
-//    // MARK: 滑动删除
+//    // - 滑动删除
 //    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //
 //        if editingStyle == .delete{
@@ -181,7 +181,7 @@ class RestaurantTableViewController: UITableViewController {
 //
 //    }
     
-    //  MARK: 向左滑动
+    //  MARK: - 向左滑动
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // delete action
@@ -236,7 +236,7 @@ class RestaurantTableViewController: UITableViewController {
     return swipeConfiguration
     }
     
-	// 使用 Segue 传递参数
+	// MARK: - 使用 Segue 传递参数
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showRestaurantDetail" {
 			if let indexPath = tableView.indexPathForSelectedRow {

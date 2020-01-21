@@ -9,7 +9,14 @@
 import UIKit
 
 class RestaurantDetailViewController: UIViewController {
-
+	
+	@IBOutlet var restaruntImageView: UIImageView!
+	@IBOutlet var restaurantNameLabel: UILabel!
+	@IBOutlet var restaurantTypeLabel: UILabel!
+	@IBOutlet var restaurantLocationLabel: UILabel!
+	
+	var restaurant = Restaurant()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -20,13 +27,8 @@ class RestaurantDetailViewController: UIViewController {
 		// 关掉大标题
 		navigationItem.largeTitleDisplayMode = .never
     }
-	
-	@IBOutlet var restaruntImageView: UIImageView!
-	@IBOutlet var restaurantNameLabel: UILabel!
-	@IBOutlet var restaurantTypeLabel: UILabel!
-	@IBOutlet var restaurantLocationLabel: UILabel!
 
-	var restaurant = Restaurant()
+
 
 }
 
