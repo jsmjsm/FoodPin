@@ -125,54 +125,9 @@
                     <view key="view" contentMode="scaleToFill" id="7a5-Dl-nVW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNU-bX-p9L">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="x11-Fv-tgC">
-                                <rect key="frame" x="131" y="303" width="113" height="61.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmn-mn-60G">
-                                        <rect key="frame" x="9.5" y="0.0" width="94.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-F0-Lcw">
-                                        <rect key="frame" x="15" y="25.5" width="83.5" height="10.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTK-MJ-Li5">
-                                        <rect key="frame" x="1" y="41" width="111.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="LNU-bX-p9L" firstAttribute="top" secondItem="5TQ-FG-8Hg" secondAttribute="top" id="7fi-i0-Arv"/>
-                            <constraint firstItem="x11-Fv-tgC" firstAttribute="top" secondItem="5TQ-FG-8Hg" secondAttribute="top" constant="259" id="84O-2k-18K"/>
-                            <constraint firstItem="x11-Fv-tgC" firstAttribute="leading" secondItem="5TQ-FG-8Hg" secondAttribute="leading" constant="131" id="8YM-uA-CkY"/>
-                            <constraint firstItem="LNU-bX-p9L" firstAttribute="bottom" secondItem="5TQ-FG-8Hg" secondAttribute="bottom" id="CaT-g2-oqp"/>
-                            <constraint firstItem="LNU-bX-p9L" firstAttribute="leading" secondItem="5TQ-FG-8Hg" secondAttribute="leading" id="Dh9-M0-sAa"/>
-                            <constraint firstItem="5TQ-FG-8Hg" firstAttribute="bottom" secondItem="x11-Fv-tgC" secondAttribute="bottom" constant="302.5" id="HBW-kk-gOo"/>
-                            <constraint firstItem="5TQ-FG-8Hg" firstAttribute="trailing" secondItem="x11-Fv-tgC" secondAttribute="trailing" constant="131" id="SBg-ZI-sVM"/>
-                            <constraint firstItem="LNU-bX-p9L" firstAttribute="trailing" secondItem="5TQ-FG-8Hg" secondAttribute="trailing" id="n70-9Y-Yum"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5TQ-FG-8Hg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jmp-lW-Eap"/>
-                    <connections>
-                        <outlet property="restaruntImageView" destination="LNU-bX-p9L" id="3mU-8Z-ofl"/>
-                        <outlet property="restaurantLocationLabel" destination="hTK-MJ-Li5" id="zwe-gb-dO5"/>
-                        <outlet property="restaurantNameLabel" destination="Vmn-mn-60G" id="ZCB-Sj-k4n"/>
-                        <outlet property="restaurantTypeLabel" destination="sVO-F0-Lcw" id="UAo-eT-DPh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swy-Ov-KxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

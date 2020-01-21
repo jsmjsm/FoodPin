@@ -7,24 +7,27 @@
 //
 
 import Foundation
+
 class Restaurant {
-	var name: String
-	var type: String
-	var location: String
-	var image: String
-	var isVisited: Bool
-	
-	// 指定初始化（构造函数
-	init (name: String, type: String, location: String, image: String, isVisited: Bool){
-		self.name = name
-		self.type = type
-		self.location = location
-		self.image = image
-		self.isVisited = isVisited
-	}
-	
-	// 便利初始化（构造函数载
-	convenience init (){
-		self.init(name:"", type:"", location:"", image:"", isVisited:false )
-	}
+    var name: String
+    var type: String
+    var location: String
+    var phone: String
+    var description: String
+    var image: String
+    var isVisited: Bool
+    
+    init(name: String, type: String, location: String, phone: String, description: String, image: String, isVisited: Bool) {
+        self.name = name
+        self.type = type
+        self.location = location
+        self.phone = phone
+        self.description = description
+        self.image = image
+        self.isVisited = isVisited
+    }
+    
+    convenience init() {
+        self.init(name: "", type: "", location: "", phone: "", description: "", image: "", isVisited: false)
+    }
 }
