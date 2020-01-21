@@ -13,27 +13,17 @@ class RestaurantDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		restaruntImageView.image = UIImage(named: restaurantImageName)
-		
+		restaruntImageView.image = UIImage(named: restaurant.image)
+//		restaurantNameLabel.text = restaurant.name
+//		restaurantTypeLabel.text = restaurant.type
+//		restaurantLocationLabel.text = restaurant.location
 		// 关掉大标题
 		navigationItem.largeTitleDisplayMode = .never
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 	
 	@IBOutlet var restaruntImageView: UIImageView!
 
-	var restaurantImageName = ""
-
+	var restaurant = Restaurant()
 
 }
 
