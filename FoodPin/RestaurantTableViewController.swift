@@ -225,10 +225,18 @@ class RestaurantTableViewController: UITableViewController {
     return swipeConfiguration
     }
     
-        
+	// 使用 Segue 传递参数
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "showRestaurantDetail" {
+			if let indexPath = tableView.indexPathForSelectedRow{
+				let destinationController = segue.destination as! RestaurantDetailViewController
+
+				destinationController.restaurantImageName = restaurantImages[indexPath.row]
+			}
+		}
+	}
     
-    
-    
+
     
     // class end
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R55-xJ-amq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R55-xJ-amq">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,7 +85,7 @@
                                     <outlet property="nameLabel" destination="dHI-Ro-LfK" id="idL-is-gxI"/>
                                     <outlet property="thumbnailImageView" destination="y5q-0v-VHz" id="Q0e-iU-8ro"/>
                                     <outlet property="typeLabel" destination="aaM-3S-454" id="7BI-MJ-kfa"/>
-                                    <segue destination="QDp-vt-ZTu" kind="show" id="yxi-0u-2DQ"/>
+                                    <segue destination="QDp-vt-ZTu" kind="show" identifier="showRestaurantDetail" id="yxi-0u-2DQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="151.57421289355324"/>
         </scene>
-        <!--View Controller-->
+        <!--Restaurant Detail View Controller-->
         <scene sceneID="bQ0-HU-H4O">
             <objects>
-                <viewController id="QDp-vt-ZTu" sceneMemberID="viewController">
+                <viewController id="QDp-vt-ZTu" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7a5-Dl-nVW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,6 +140,9 @@
                         <viewLayoutGuide key="safeArea" id="5TQ-FG-8Hg"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jmp-lW-Eap"/>
+                    <connections>
+                        <outlet property="restaruntImageView" destination="LNU-bX-p9L" id="3mU-8Z-ofl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swy-Ov-KxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
