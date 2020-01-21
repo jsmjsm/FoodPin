@@ -14,7 +14,9 @@ class RestaurantDetailViewController: UIViewController {
         super.viewDidLoad()
 		
 		restaruntImageView.image = UIImage(named: restaurantImageName)
-        // Do any additional setup after loading the view.
+		
+		// 关掉大标题
+		navigationItem.largeTitleDisplayMode = .never
     }
     
 
@@ -32,8 +34,6 @@ class RestaurantDetailViewController: UIViewController {
 
 	var restaurantImageName = ""
 
-	
-	
 
 }
 
