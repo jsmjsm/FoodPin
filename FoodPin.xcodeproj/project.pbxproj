@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6056CC8A23D6EBB4006321A5 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CC8923D6EBB4006321A5 /* RestaurantDetailViewController.swift */; };
 		6056CC8C23D6F768006321A5 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6056CC8B23D6F768006321A5 /* Restaurant.swift */; };
+		609CFDF623DFDB8700E37312 /* Hack-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609CFDF323DFDB4000E37312 /* Hack-Bold.ttf */; };
+		609CFDF723DFDB8700E37312 /* Hack-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609CFDF523DFDB4000E37312 /* Hack-BoldItalic.ttf */; };
+		609CFDF823DFDB8700E37312 /* Hack-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609CFDF223DFDB4000E37312 /* Hack-Italic.ttf */; };
+		609CFDF923DFDB8700E37312 /* Hack-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609CFDF423DFDB4000E37312 /* Hack-Regular.ttf */; };
 		F44705AE211AF99E002E0327 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44705AD211AF99E002E0327 /* AppDelegate.swift */; };
 		F44705B3211AF99E002E0327 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44705B1211AF99E002E0327 /* Main.storyboard */; };
 		F44705B5211AF99F002E0327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44705B4211AF99F002E0327 /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		6056CC8923D6EBB4006321A5 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		6056CC8B23D6F768006321A5 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		609CFDF223DFDB4000E37312 /* Hack-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hack-Italic.ttf"; sourceTree = "<group>"; };
+		609CFDF323DFDB4000E37312 /* Hack-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hack-Bold.ttf"; sourceTree = "<group>"; };
+		609CFDF423DFDB4000E37312 /* Hack-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hack-Regular.ttf"; sourceTree = "<group>"; };
+		609CFDF523DFDB4000E37312 /* Hack-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hack-BoldItalic.ttf"; sourceTree = "<group>"; };
 		F44705AA211AF99E002E0327 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44705AD211AF99E002E0327 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F44705B2211AF99E002E0327 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +83,25 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		609CFDF023DFDAD200E37312 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				609CFDF123DFDAE700E37312 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		609CFDF123DFDAE700E37312 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				609CFDF323DFDB4000E37312 /* Hack-Bold.ttf */,
+				609CFDF523DFDB4000E37312 /* Hack-BoldItalic.ttf */,
+				609CFDF223DFDB4000E37312 /* Hack-Italic.ttf */,
+				609CFDF423DFDB4000E37312 /* Hack-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F44705A1211AF99D002E0327 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +121,7 @@
 		F44705AC211AF99E002E0327 /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				609CFDF023DFDAD200E37312 /* Resources */,
 				6056CC9023D74049006321A5 /* Storyboard */,
 				6056CC8F23D74030006321A5 /* View */,
 				6056CC8E23D74023006321A5 /* Model */,
@@ -166,6 +194,10 @@
 			files = (
 				F44705B8211AF99F002E0327 /* LaunchScreen.storyboard in Resources */,
 				F44705B5211AF99F002E0327 /* Assets.xcassets in Resources */,
+				609CFDF923DFDB8700E37312 /* Hack-Regular.ttf in Resources */,
+				609CFDF723DFDB8700E37312 /* Hack-BoldItalic.ttf in Resources */,
+				609CFDF823DFDB8700E37312 /* Hack-Italic.ttf in Resources */,
+				609CFDF623DFDB8700E37312 /* Hack-Bold.ttf in Resources */,
 				F44705B3211AF99E002E0327 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
