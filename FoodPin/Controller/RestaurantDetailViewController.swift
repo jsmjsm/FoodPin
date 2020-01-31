@@ -9,16 +9,6 @@
 import UIKit
 
 class RestaurantDetailViewController: UIViewController {
-    
-    var restaurant = Restaurant()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.largeTitleDisplayMode = .never
-    }
-    
-
     /*
     // MARK: - Navigation
 
@@ -28,6 +18,26 @@ class RestaurantDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+	
+	@IBOutlet var tableView: UITableView!
+	@IBOutlet var headerView: RestaurantDetailHeaderView!
+	
+    var restaurant = Restaurant()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.largeTitleDisplayMode = .never
+		
+		// 设置标题视图
+		headerView.nameLabel.text = restaurant.name
+		headerView.typeLabel.text = restaurant.type
+		headerView.headerImageView.image = UIImage(named: restaurant.image)
+		headerView.heartImageView.isHidden = (restaurant.isVisited) ? false : true
+    }
+    
+
+
 
 }
 
